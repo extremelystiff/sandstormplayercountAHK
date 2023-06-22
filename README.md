@@ -1,5 +1,6 @@
 # sandstormplayercountAHK
 AutoHotKey overlay to display player counts, fetched from Steam API.
+![image](https://github.com/extremelystiff/sandstormplayercountAHK/assets/41177088/1a6a6128-68b4-4802-9fda-46f7d6fc6743)
 
 Hello,
 
