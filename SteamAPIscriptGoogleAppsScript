@@ -1,0 +1,24 @@
+function getSteamGameData() {
+  var key = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';  // Replace with your actual API key
+  var appid = '581320';
+  var url = `https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?key=${key}&appid=${appid}`;
+
+  var options = {
+    'method' : 'get',
+    'muteHttpExceptions': true
+  };
+
+  var response = UrlFetchApp.fetch(url, options);
+  var data = JSON.parse(response.getContentText());
+  return data.response.player_count;
+}
+
+function doGet(e) {
+  var playerCount = getSteamGameData();
+  var output = {
+    'player_count': playerCount
+  };
+  
+  return ContentService.createTextOutput(JSON.stringify(output))
+    .setMimeType(ContentService.MimeType.JSON);
+}
